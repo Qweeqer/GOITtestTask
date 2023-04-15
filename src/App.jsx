@@ -1,4 +1,3 @@
-// App.jsx
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -8,16 +7,14 @@ import {
 } from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import { Tweets } from './components/Tweets/Tweets';
-// import { UserList } from './components/UserList/UserList';
 
 export const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/tweets" element={<Tweets />} />
-        {/* <Route path="/users" element={<UserList />} /> */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
     </Router>
   );
