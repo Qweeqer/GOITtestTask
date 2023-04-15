@@ -4,12 +4,14 @@ import ParticlesLines from '../ParticlesLines/ParticlesLines';
 import css from './Home.module.css';
 import screenTweet from '../../images/screenTweet.png';
 import { HomeTitle, WrapperHomePage } from './HomePage.styled';
+import goit_logo from '../../images/goit_logo.png';
 
 export const Home = () => {
   return (
     <WrapperHomePage>
       <ParticlesLines />
       <div className={css.mainContainer}>
+        <img src={goit_logo} alt="logo" className={css.logo} width="96" />
         <HomeTitle className={css.title}>Домашня сторінка</HomeTitle>
         <Link className={css.link} to="/tweets">
           Tweets
