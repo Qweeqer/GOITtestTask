@@ -1,0 +1,33 @@
+.mainContainer {
+  width: 50%;
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.title,
+.subTitle {
+  text-align: center;
+}
+.subTitle {
+  margin-top: 20px;
+  font-size: 30px;
+}
+.link {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 500;
+  color: white;
+  background-color: #5a5dff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
