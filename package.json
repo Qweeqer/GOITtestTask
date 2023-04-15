@@ -2,7 +2,7 @@
     "name": "testtaskgoit",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://xwinst.github.io/testTaskGoIt",
+    "homepage": "https://qweeqer.github.com/test-goit",
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.3",
         "axios": "^1.3.5",
