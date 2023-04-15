@@ -1,29 +1,25 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { setFilter } from 'redux/usersReducer';
-import { Select } from 'components';
-import s from './Filter.module.css';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
 
-const filters = ['all', 'follow', 'following'];
+import { changeFilterValue } from '../../redux/contactsSlice';
+
+import './Filter.module.css';
 
 const Filter = () => {
-    const filter = useSelector(state => state.users.filter);
-    const dispatch = useDispatch();
-
-    const changeFilter = value => {
-        dispatch(setFilter(value));
-    };
-
-    return (
-        <div className={s.container}>
-            <p>Show:</p>
-            <Select
-                list={filters}
-                onSelect={changeFilter}
-                value={filter}
-                name="filter"
-            />
-        </div>
-    );
+  const filterValue = useSelector(state => state.filterValue.value);
+  const dispatch = useDispatch();
+  return (
+    <label>
+      <input
+        name="filter"
+        value={filterValue}
+        placeholder="Find contacts by name or phone"
+        onChange={e => {
+          dispatch(changeFilterValue(e.currentTarget.value));
+        }}
+      ></input>
+    </label>
+  );
 };
 
 export default Filter;
