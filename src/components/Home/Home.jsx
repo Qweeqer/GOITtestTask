@@ -13,14 +13,18 @@ export const Home = () => {
       <div className={css.mainContainer}>
         <img src={goit_logo} alt="logo" className={css.logo} width="96" />
         <HomeTitle className={css.title}>Домашня сторінка</HomeTitle>
-        <Link className={css.link} to="/tweets">
+        <Link className={css.link} to="/GOITtestTask/tweets">
           Tweets
         </Link>
         <h2 className={css.subTitle}>
           Мета: створити картки твітів та додати інтерактивності при клікові на
           кнопку.
         </h2>
-        <img className={css.screenTweet } src={screenTweet} alt="Картинка з твітом" />
+        <img
+          className={css.screenTweet}
+          src={screenTweet}
+          alt="Картинка з твітом"
+        />
       </div>
     </WrapperHomePage>
   );

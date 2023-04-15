@@ -12,9 +12,9 @@ export const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/tweets" element={<Tweets />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/GOITtestTask/" element={<Home />} />
+        <Route path="/GOITtestTask/tweets" element={<Tweets />} />
+        <Route path="*" element={<Navigate to="/GOITtestTask/" />} />
       </Routes>
     </Router>
   );
