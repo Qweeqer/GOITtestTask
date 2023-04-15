@@ -1,8 +1,14 @@
+.mainContent {
+  background-color: #5a5dff;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: bold;
+}
 .title {
   text-align: center;
-  background-color: #5a5dff;
-  padding: 20px;
-  color: white;
 }
 .link {
   display: inline-block;
@@ -17,8 +23,35 @@
   transition: background-color 0.3s ease;
   text-decoration: none;
 }
-.link:hover{
+.link:hover {
   cursor: pointer;
   transform: scale(1.05);
-  background-color: #5CD3A8;
+  background-color: #5cd3a8;
+}
+.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.filter {
+  padding: 10px;
+  font-size: 32px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.filter option {
+  padding: 10px;
+  font-size: 26px;
+  background-color: #fff;
+  color: #333;
+}
+
+.filter option:checked {
+  background-color: #007bff;
+  color: #fff;
 }
