@@ -4,15 +4,15 @@
   color: white;
   text-align: center;
   margin-bottom: 20px;
-  font-size: 36px;
+  font-size: 26px;
   font-weight: bold;
 }
-.title {
+h1.title {
   text-align: center;
 }
 .link {
   display: inline-block;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 500;
   color: white;
   background-color: #5a5dff;
@@ -36,7 +36,7 @@
 }
 .filter {
   padding: 10px;
-  font-size: 32px;
+  font-size: 25px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;
