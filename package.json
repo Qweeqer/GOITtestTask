@@ -1,8 +1,8 @@
 {
-  "name": "test-goit",
+  "name": "goittesttask",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://qweeqer.github.com/test-goit",
+  "homepage": "https://qweeqer.github.com/GOITtestTask",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
