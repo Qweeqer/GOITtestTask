@@ -1,5 +1,8 @@
 .title {
   text-align: center;
+  background-color: #5a5dff;
+  padding: 20px;
+  color: white;
 }
 .link {
   display: inline-block;
@@ -13,4 +16,9 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-decoration: none;
+}
+.link:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: #5CD3A8;
 }
