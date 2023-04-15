@@ -20,7 +20,7 @@ export const Home = () => {
           Мета: створити картки твітів та додати інтерактивності при клікові на
           кнопку.
         </h2>
-        <img src={screenTweet} alt="Картинка з твітом" />
+        <img className={css.screenTweet } src={screenTweet} alt="Картинка з твітом" />
       </div>
     </WrapperHomePage>
   );
