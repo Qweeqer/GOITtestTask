@@ -13,7 +13,7 @@ export const Tweets = () => {
   return (
     <div className={css.container}>
       <div className={css.header}>
-        <Link className={css.link} to="/" replace>
+        <Link className={css.link} to="/">
           Back
         </Link>
         <div className={css.mainContent}>
