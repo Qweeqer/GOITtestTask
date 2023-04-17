@@ -3,7 +3,7 @@ import css from './UserItems.module.css';
 import avatarDefault from '../../images/avatarDefault.png';
 import goit_logo from '../../images/goit_logo.png';
 
-export const UserItems = ({ user }) => {
+export const UserItems = ({ user, onFollowToggle }) => {
   const { id, tweets, followers, avatar = avatarDefault } = user;
   const [isFollowing, setIsFollowing] = useState(
     JSON.parse(localStorage.getItem(`${id}-isFollowing`)) ?? false
@@ -20,11 +20,13 @@ export const UserItems = ({ user }) => {
   const onFollowClick = () => {
     setIsFollowing(true);
     setNumberFollowers(prevFollowers => prevFollowers + 1);
+    onFollowToggle(id, true); // виклик onFollowToggle при кліку на Follow
   };
 
   const onFollowingClick = () => {
     setIsFollowing(false);
     setNumberFollowers(prevFollowers => prevFollowers - 1);
+    onFollowToggle(id, false); // виклик onFollowToggle при кліку на Following
   };
 
   return (
@@ -34,30 +36,29 @@ export const UserItems = ({ user }) => {
       <div className={css.avatarContainer}>
         <img src={avatar} alt="avatar" className={css.avatar} width="64" />
       </div>
-
       <div className={css.textContainer}>
         <p className={css.text}>{tweets} tweets</p>
         <p className={css.text}>
           {numberFollowers.toLocaleString('en-US')} followers
         </p>
-        {isFollowing ? (
-          <button
-            type="button"
-            onClick={onFollowingClick}
-            className={`${css.button} ${css.following}`}
-          >
-            Following
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={onFollowClick}
-            className={`${css.button} ${css.follow}`}
-          >
-            Follow
-          </button>
-        )}
+      {isFollowing ? (
+        <button
+          type="button"
+          onClick={onFollowingClick}
+          className={`${css.button} ${css.following}`}
+        >
+          Following
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={onFollowClick}
+          className={`${css.button} ${css.follow}`}
+        >
+          Follow
+        </button>
+      )}
       </div>
-    </div>
+      </div>
   );
 };
