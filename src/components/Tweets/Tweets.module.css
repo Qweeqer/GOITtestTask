@@ -55,3 +55,13 @@ h1.title {
   background-color: #007bff;
   color: #fff;
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+  h1.title {
+    font-size: 26px;
+  }
+  .mainContent,
+  .filter,
+  .filter option {
+    font-size: 20px;
+  }
+}
