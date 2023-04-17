@@ -5,9 +5,19 @@ import css from './Tweets.module.css';
 
 export const Tweets = () => {
   const [filter, setFilter] = useState('all'); // стан фільтрації
-
+  const [users, setUsers] = useState([]); // стан користувачів
   const handleFilterChange = event => {
     setFilter(event.target.value); // оновлення стану фільтрації при виборі нової опції
+  };
+  const handleFollowToggle = (userId, isFollowing) => {
+    // Створюємо новий масив користувачів на підставі поточного стану,
+    // заміна данних користувача з заданим id
+    const newUsers = users.map(user =>
+      user.id === userId ? { ...user, isFollowing } : user
+    );
+
+    // Встановлюємо новий масив користувачів
+    setUsers(newUsers);
   };
 
   return (
@@ -37,7 +47,11 @@ export const Tweets = () => {
 
       {/* Компонент UserList з фільтрацією */}
       <div className={css.content}>
-        <UserList filter={filter} />
+        <UserList
+          filter={filter}
+          users={users}
+          onFollowToggle={handleFollowToggle}
+        />
       </div>
     </div>
   );
