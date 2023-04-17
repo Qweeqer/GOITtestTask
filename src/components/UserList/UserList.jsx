@@ -73,11 +73,24 @@ export const UserList = ({ filter }) => {
     }
   };
 
+const onFollowToggle = (userId, isFollowing) => {
+  const newUsers = users.map(user =>
+    user.id === userId ? { ...user, isFollowing } : user
+  );
+  setUsers(newUsers);
+};
+
   return (
     <div className={css.UserList}>
       <div className={css.cardsContainer}>
         {sortedUsers.map((user, index) => {
-          return <UserItems key={`${user.id}-${index}`} user={user} />;
+          return (
+            <UserItems
+              key={`${user.id}-${index}`}
+              user={user}
+              onFollowToggle={onFollowToggle} // передаемо onFollowToggle через пропс
+            />
+          );
         })}
       </div>
       {hasMoreUsers && (
