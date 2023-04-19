@@ -29,6 +29,10 @@ export const UserItems = ({ user, onFollowToggle }) => {
     onFollowToggle(id, false); // виклик onFollowToggle при кліку на Following
   };
 
+  const followersWithComma = `${numberFollowers.toLocaleString(
+    'en'
+  )} followers`;
+
   return (
     <div className={css.userCard}>
       <img src={goit_logo} alt="logo" className={css.logo} width="76" />
@@ -38,27 +42,26 @@ export const UserItems = ({ user, onFollowToggle }) => {
       </div>
       <div className={css.textContainer}>
         <p className={css.text}>{tweets} tweets</p>
-        <p className={css.text}>
-          {numberFollowers.toLocaleString('en-US')} followers
-        </p>
-      {isFollowing ? (
-        <button
-          type="button"
-          onClick={onFollowingClick}
-          className={`${css.button} ${css.following}`}
-        >
-          Following
-        </button>
-      ) : (
-        <button
-          type="button"
-          onClick={onFollowClick}
-          className={`${css.button} ${css.follow}`}
-        >
-          Follow
-        </button>
-      )}
+        <p className={css.text}>{followersWithComma}</p>
+
+        {isFollowing ? (
+          <button
+            type="button"
+            onClick={onFollowingClick}
+            className={`${css.button} ${css.following}`}
+          >
+            Following
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={onFollowClick}
+            className={`${css.button} ${css.follow}`}
+          >
+            Follow
+          </button>
+        )}
       </div>
-      </div>
+    </div>
   );
 };
