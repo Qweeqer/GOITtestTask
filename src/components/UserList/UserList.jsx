@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 import css from './UserList.module.css';
 import { UserItems } from '../UserItems/UserItems';
 
+const apiUrl = process.env.REACT_APP_MOCKAPI_URL;
+console.log('apiUrl', apiUrl);
+console.log(
+  'process.env.REACT_APP_MOCKAPI_URL:',
+  process.env.REACT_APP_MOCKAPI_URL
+);
 export const UserList = ({ filter }) => {
   const [users, setUsers] = useState([]);
   const [sortedUsers, setSortedUsers] = useState([]);
@@ -9,34 +15,33 @@ export const UserList = ({ filter }) => {
   const [hasMoreUsers, setHasMoreUsers] = useState(true);
   const tweetsPerPage = 8;
 
-    useEffect(() => {
-      let isMounted = true; // Стан для перевірки, чи досі компонент встановлений
+  useEffect(() => {
+    let isMounted = true; // Стан для перевірки, чи досі компонент встановлений
 
-      const loadInitialUsers = async () => {
-        const apiUrl = 'https://643a7f6f90cd4ba563fabc3c.mockapi.io/api/v2/users';
-        try {
-          const response = await fetch(
-            `${apiUrl}?page=${currentPage}&limit=${tweetsPerPage}`
-          );
-          const loadedUsers = await response.json();
-          if (isMounted) {
-            // Перевірка, чи компонент все ще встановлений
-            setUsers(prevUsers => [...prevUsers, ...loadedUsers]);
-            setCurrentPage(prevPage => prevPage + 1);
-          }
-        } catch (error) {
-          console.error('Помилка при отриманні даних:', error);
+    const loadInitialUsers = async () => {
+      try {
+        const response = await fetch(
+          `${apiUrl}?page=${currentPage}&limit=${tweetsPerPage}`
+        );
+        const loadedUsers = await response.json();
+        if (isMounted) {
+          // Перевірка, чи компонент все ще встановлений
+          setUsers(prevUsers => [...prevUsers, ...loadedUsers]);
+          setCurrentPage(prevPage => prevPage + 1);
         }
-      };
+      } catch (error) {
+        console.error('Помилка при отриманні даних:', error);
+      }
+    };
 
-      loadInitialUsers();
+    loadInitialUsers();
 
-      return () => {
-        isMounted = false; // Очистка стану при демонтажі компонента
-      };
+    return () => {
+      isMounted = false; // Очистка стану при демонтажі компонента
+    };
 
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const filteredUsers = users.filter(user => {
@@ -53,7 +58,6 @@ export const UserList = ({ filter }) => {
   }, [filter, users]);
 
   const loadMore = async () => {
-    const apiUrl = 'https://643a7f6f90cd4ba563fabc3c.mockapi.io/api/v2/users';
     try {
       const response = await fetch(
         `${apiUrl}?page=${currentPage}&limit=${tweetsPerPage}`
@@ -73,12 +77,12 @@ export const UserList = ({ filter }) => {
     }
   };
 
-const onFollowToggle = (userId, isFollowing) => {
-  const newUsers = users.map(user =>
-    user.id === userId ? { ...user, isFollowing } : user
-  );
-  setUsers(newUsers);
-};
+  const onFollowToggle = (userId, isFollowing) => {
+    const newUsers = users.map(user =>
+      user.id === userId ? { ...user, isFollowing } : user
+    );
+    setUsers(newUsers);
+  };
 
   return (
     <div className={css.UserList}>
