@@ -3,16 +3,15 @@ import { Link } from 'react-router-dom';
 import ParticlesLines from '../ParticlesLines/ParticlesLines';
 import css from './Home.module.css';
 import screenTweet from '../../images/screenTweet.png';
-import { HomeTitle, WrapperHomePage } from './HomePage.styled';
 import goit_logo from '../../images/goit_logo.png';
 
 export const Home = () => {
   return (
-    <WrapperHomePage>
+    <div className={css.wrapperHomePage}>
       <ParticlesLines />
       <div className={css.mainContainer}>
         <img src={goit_logo} alt="logo" className={css.logo} width="96" />
-        <HomeTitle className={css.title}>Домашня сторінка</HomeTitle>
+        <h1 className={css.homeTitle}>Домашня сторінка</h1>
         <Link className={css.link} to="/GOITtestTask/tweets">
           Tweets
         </Link>
@@ -26,6 +25,6 @@ export const Home = () => {
           alt="Картинка з твітом"
         />
       </div>
-    </WrapperHomePage>
+    </div>
   );
 };
