@@ -19,7 +19,7 @@
 }
 .subTitle {
   margin-top: 20px;
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 30px;
 }
 .link {
@@ -60,3 +60,30 @@
     font-size: 20px;
   }
 }
+
+/* *********************************** */
+.wrapperHomePage {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+@media screen and (max-width: 550px) {
+  .wrapperHomePage {
+    padding: 25px;
+  }
+}
+
+.homeTitle {
+  padding-left: 15px;
+  font-size: 50px;
+  font-weight: 700;
+  margin-top: 30px;
+  text-align: center;
+
+  @media screen and (max-width: 550px) {
+    font-size: 56px;
+  }
+}
+
+
