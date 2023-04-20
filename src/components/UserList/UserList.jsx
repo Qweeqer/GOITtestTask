@@ -3,11 +3,7 @@ import css from './UserList.module.css';
 import { UserItems } from '../UserItems/UserItems';
 
 const apiUrl = process.env.REACT_APP_MOCKAPI_URL;
-console.log('apiUrl', apiUrl);
-console.log(
-  'process.env.REACT_APP_MOCKAPI_URL:',
-  process.env.REACT_APP_MOCKAPI_URL
-);
+
 export const UserList = ({ filter }) => {
   const [users, setUsers] = useState([]);
   const [sortedUsers, setSortedUsers] = useState([]);
