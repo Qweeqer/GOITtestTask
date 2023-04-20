@@ -23,10 +23,10 @@ export const Tweets = () => {
   return (
     <div className={css.container}>
       <div className={css.header}>
+        <div className={css.mainContent}>
         <Link className={css.link} to="/GOITtestTask/">
           Back
         </Link>
-        <div className={css.mainContent}>
           <h1 className={css.title}>Сторінка з твітами</h1>
           {/* Компонент Dropdown з опціями для фільтрації */}
           <div className={css.dropdown}>
