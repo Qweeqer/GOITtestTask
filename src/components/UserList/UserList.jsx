@@ -79,6 +79,15 @@ export const UserList = ({ filter }) => {
     );
     setUsers(newUsers);
   };
+  const shouldRenderLoadMoreButton =
+    (filter === 'follow' &&
+      sortedUsers.filter(
+        user => !JSON.parse(localStorage.getItem(`${user.id}-isFollowing`))
+      ).length < 9) ||
+    (filter === 'following' &&
+      sortedUsers.filter(user =>
+        JSON.parse(localStorage.getItem(`${user.id}-isFollowing`))
+      ).length < 9);
 
   return (
     <div className={css.UserList}>
@@ -93,7 +102,7 @@ export const UserList = ({ filter }) => {
           );
         })}
       </div>
-      {hasMoreUsers && (
+      {hasMoreUsers && !shouldRenderLoadMoreButton && (
         <button onClick={loadMore} className={css.loadMoreButton}>
           Load More
         </button>
